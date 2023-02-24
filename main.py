@@ -93,15 +93,19 @@ def display():
 
 #Fonction qui randomise le placement de 2 chiffre de 2 sur le tableau
 def rand_om():
-    if numbers == 0:
-        random.randint(numbers[])
-        labels[line][colon] += 2
+    randomNumbers = random.randint(0, 3)
+    randomNumbers2 = random.randint(0, 3)
+    if numbers[randomNumbers][randomNumbers2] == 0:
+        numbers[randomNumbers][randomNumbers2] = 2
+        print("ELod")
+    display()
 
 
 #Recommemce la partie avec 2x2 chiffres aléatoirement placé
 def new_game():
     global numbers
     numbers = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    rand_om()
     rand_om()
     display()
 

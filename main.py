@@ -97,7 +97,6 @@ def rand_om():
     randomNumbers2 = random.randint(0, 3)
     if numbers[randomNumbers][randomNumbers2] == 0:
         numbers[randomNumbers][randomNumbers2] = 2
-        print("ELod")
     display()
 
 

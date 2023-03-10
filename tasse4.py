@@ -3,7 +3,6 @@
 # chaque élève doit créer et tester sa fonction (durée environ 4 périodes)
 
 
-
 def tasse_4(a,b,c,d):
     nmove=0 #sert à savoir si on a réussi à bouger
     # ici le code va manipuler a,b,c et d
@@ -33,6 +32,6 @@ def tasse_4(a,b,c,d):
 
 
     # ici on retourne les cinq valeurs en un tableau
-    temp=[a,b,c,d,nmove] #tableau temporaire de fin
+    temp=[a,b,c,d,nmove] #tableau temporaire de finsw
     return temp
 

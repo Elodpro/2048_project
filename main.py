@@ -41,10 +41,10 @@ colors = {
 }
 
 #Pré crée les tuilles avec leur chiffre
-numbers = [[2, 4, 8, 16],
-           [32, 64, 128, 256],
-           [512, 1024, 2048, 4096],
-           [8192, 0, 0, 0]]
+numbers = [[2, 0, 0, 0],
+           [32, 0, 16, 0],
+           [0, 8, 0, 2],
+           [0, 4, 4, 0]]
 
 #Créer les espaces vides pour les tuilles
 labels = [[None, None, None, None],
@@ -73,13 +73,14 @@ height1 = 61 #espacement vertical en pixels des étiquettes
 for line in range(len(numbers)):
     for colon in range(len(numbers[line])):
         # construction de chaque label sans le placer
-        labels[line][colon] = tkinter.Label(text=numbers[line][colon], width=8, height=2, borderwidth=2, relief="solid",font=("Comic Sans MS", 14), bg=colors[numbers[line][colon]])
+        labels[line][colon] = Label(text=numbers[line][colon], width=8, height=2, borderwidth=2, relief="solid",font=("Comic Sans MS", 14), bg=colors[numbers[line][colon]])
 
         # placement du label dans la fenêtre par ses coordonnées en pixels
         labels[line][colon].place(x=51 + width1 * colon, y=150 + height1 * line)
 
 
 def display():
+    print(numbers)
     for line in range(len(numbers)):
         for colon in range(len(numbers[line])):
 
@@ -92,10 +93,18 @@ def display():
 
 
 #Fonction qui randomise le placement de 2 chiffre de 2 sur le tableau
+#Aide Carlos pour la fonction ci-dessous
 def rand_om():
     randomNumbers = random.randint(0, 3)
     randomNumbers2 = random.randint(0, 3)
-    if numbers[randomNumbers][randomNumbers2] == 0:
+    
+    while numbers[randomNumbers][randomNumbers2] != 0:
+          randomNumbers = random.randint(0, 3)
+          randomNumbers2 = random.randint(0, 3)
+          if numbers[randomNumbers][randomNumbers2] == 0:
+              numbers[randomNumbers][randomNumbers2] = 2
+              break
+    else:
         numbers[randomNumbers][randomNumbers2] = 2
     display()
 
@@ -114,39 +123,46 @@ btn_newGame = Button(window, text="Nouveau", width=7, borderwidth=3, height=1, r
 
 #Déplacer les chiffres à gauche
 def move_left(event):
-    tasse_4(numbers[0][0],numbers[0][1],numbers[0][2],numbers[0][3])
-    tasse_4(numbers[1][0],numbers[1][1],numbers[1][2],numbers[1][3])
-    tasse_4(numbers[2][0],numbers[2][1],numbers[2][2],numbers[2][3])
-    tasse_4(numbers[3][0],numbers[3][1],numbers[3][2],numbers[3][3])
+    for ligne in range(len(numbers)):
+        [numbers[ligne][0], numbers[ligne][1], numbers[ligne][2], numbers[ligne][3],n]= tasse_4(numbers[ligne][0],numbers[ligne][1],numbers[ligne][2],numbers[ligne][3])
+    rand_om()
+    display()
+
 
 #Déplacer les chiffres à droite
 def move_right(event):
-    tasse_4(numbers[0][0], numbers[0][1], numbers[0][2], numbers[0][3])
-    tasse_4(numbers[1][0], numbers[1][1], numbers[1][2], numbers[1][3])
-    tasse_4(numbers[2][0], numbers[2][1], numbers[2][2], numbers[2][3])
-    tasse_4(numbers[3][0], numbers[3][1], numbers[3][2], numbers[3][3])
+    for ligne in range(4):
+        [numbers[ligne][3], numbers[ligne][2], numbers[ligne][1], numbers[ligne][0],n] = tasse_4(numbers[ligne][3],
+        numbers[ligne][2],numbers[ligne][1],numbers[ligne][0])
+    rand_om()
+    display()
+
 
 #Déplacer les chiffres en haut
 def move_top(event):
-    tasse_4(numbers[0][0], numbers[0][1], numbers[0][2], numbers[0][3])
-    tasse_4(numbers[1][0], numbers[1][1], numbers[1][2], numbers[1][3])
-    tasse_4(numbers[2][0], numbers[2][1], numbers[2][2], numbers[2][3])
-    tasse_4(numbers[3][0], numbers[3][1], numbers[3][2], numbers[3][3])
+    for ligne in range(4):
+        [numbers[0][ligne], numbers[1][ligne], numbers[2][ligne], numbers[3][ligne],n] = tasse_4(numbers[0][ligne],
+        numbers[1][ligne],numbers[2][ligne],numbers[3][ligne])
+    rand_om()
+    display()
+
 
 #Déplacer les chiffres en bas
 def move_bottom(event):
-    tasse_4(numbers[0][0], numbers[0][1], numbers[0][2], numbers[0][3])
-    tasse_4(numbers[1][0], numbers[1][1], numbers[1][2], numbers[1][3])
-    tasse_4(numbers[2][0], numbers[2][1], numbers[2][2], numbers[2][3])
-    tasse_4(numbers[3][0], numbers[3][1], numbers[3][2], numbers[3][3])
+    for ligne in range(4):
+        [numbers[3][ligne], numbers[2][ligne], numbers[1][ligne], numbers[0][ligne],n] = tasse_4(numbers[3][ligne],
+        numbers[2][ligne],numbers[1][ligne],numbers[0][ligne])
+    rand_om()
+    display()
 
 
 
-#Définission des touches
+#Attribuer les touches au déplacement
 window.bind("<a>",move_left)
 window.bind("<d>",move_right)
-window.bind("<w>",move_top)
-window.bind("<s>",move_bottom)
+window.bind("w",move_top)
+window.bind("s",move_bottom)
+
 
 #Afficher les choses crée
 background_label.place(x=40, y=138)

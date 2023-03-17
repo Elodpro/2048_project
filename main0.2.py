@@ -5,12 +5,13 @@ import tkinter
 import random
 from tkinter import *
 import tkinter.font as tkFont
-from tasse4 import *
 
 
 #Création fenêtre au millieu de l'écran
 width = 500
 height = 500
+luck2 = 0.80
+nmove = 0
 window = Tk()
 window.config(bg="#FCF0CC")
 screenwidth = window.winfo_screenwidth()
@@ -23,6 +24,8 @@ window.title("2048")
 
 
 #Variables
+
+
 colors = {
     0: "#E9DBAE",
     2: "#FFE599",
@@ -79,6 +82,40 @@ for line in range(len(numbers)):
         labels[line][colon].place(x=51 + width1 * colon, y=150 + height1 * line)
 
 
+def tasse_4(a,b,c,d):
+    global nmove
+    nmove = 0  # sert à savoir si on a réussi à bouger
+    # ici le code va manipuler a,b,c et d
+
+    #Supprimer les 0 ou plutôt déplacer les chiffres vulgairement
+    if c == 0 and d > 0:
+        c, d = d, 0
+        nmove += 1
+    if b == 0 and c > 0:
+        b,c,d = c,d,0
+        nmove += 1
+    if a == 0 and b > 0:
+        a,b,c,d = b,c,d,0
+        nmove += 1
+
+    #Stack les chiffres entre eux ou additionner plutôt
+    if a == b and b > 0:
+        a,b,c,d = a+b,c,d,0
+        nmove += 1
+    if b == c and c >0:
+        b,c,d = b+c,d,0
+        nmove += 1
+    if c == d and d >0:
+        c,d = c+d,0
+        nmove += 1
+
+
+    # ici on retourne les cinq valeurs en un tableau
+    temp=[a,b,c,d] #tableau temporaire de finsw
+    return temp
+
+
+
 def display():
     print(numbers)
     for line in range(len(numbers)):
@@ -92,8 +129,8 @@ def display():
                 labels[line][colon].config(text=numbers[line][colon], bg=colors[numbers[line][colon]])
 
 
-#Fonction qui randomise le placement de 2 chiffre de 2 sur le tableau
-#Aide Carlos pour la fonction ci-dessous
+#Fonction qui randomise le placement de 2 chiffre de 2 ou 4 sur le tableau
+#Aidé par Carlos pour la fonction ci-dessous
 def rand_om():
     randomNumbers = random.randint(0, 3)
     randomNumbers2 = random.randint(0, 3)
@@ -101,11 +138,22 @@ def rand_om():
     while numbers[randomNumbers][randomNumbers2] != 0:
           randomNumbers = random.randint(0, 3)
           randomNumbers2 = random.randint(0, 3)
+
           if numbers[randomNumbers][randomNumbers2] == 0:
-              numbers[randomNumbers][randomNumbers2] = 2
+
+              if random.random() < luck2:
+                numbers[randomNumbers][randomNumbers2] = 2
+
+              else:
+                  numbers[randomNumbers][randomNumbers2] = 4
               break
     else:
-        numbers[randomNumbers][randomNumbers2] = 2
+
+        if random.random() < luck2:
+            numbers[randomNumbers][randomNumbers2] = 2
+
+        else:
+            numbers[randomNumbers][randomNumbers2] = 4
     display()
 
 
@@ -123,36 +171,65 @@ btn_newGame = Button(window, text="Nouveau", width=7, borderwidth=3, height=1, r
 
 #Déplacer les chiffres à gauche
 def move_left(event):
+    global nmove
+    tempnmove = 0
     for ligne in range(len(numbers)):
-        [numbers[ligne][0], numbers[ligne][1], numbers[ligne][2], numbers[ligne][3],n]= tasse_4(numbers[ligne][0],numbers[ligne][1],numbers[ligne][2],numbers[ligne][3])
-    rand_om()
+        [numbers[ligne][0], numbers[ligne][1], numbers[ligne][2], numbers[ligne][3]]= tasse_4(numbers[ligne][0],
+        numbers[ligne][1],numbers[ligne][2],numbers[ligne][3])
+        tempnmove += nmove
+    if tempnmove == 0:
+        print("Move")
+    else:
+        rand_om()
+        print("noMove")
     display()
 
 
 #Déplacer les chiffres à droite
 def move_right(event):
-    for ligne in range(4):
-        [numbers[ligne][3], numbers[ligne][2], numbers[ligne][1], numbers[ligne][0],n] = tasse_4(numbers[ligne][3],
+    global nmove
+    tempnmove = 0
+    for ligne in range(len(numbers)):
+        [numbers[ligne][3], numbers[ligne][2], numbers[ligne][1], numbers[ligne][0]] = tasse_4(numbers[ligne][3],
         numbers[ligne][2],numbers[ligne][1],numbers[ligne][0])
-    rand_om()
+        tempnmove += nmove
+    if tempnmove == 0:
+        print("Move")
+    else:
+        rand_om()
+        print("noMove")
     display()
 
 
 #Déplacer les chiffres en haut
 def move_top(event):
-    for ligne in range(4):
-        [numbers[0][ligne], numbers[1][ligne], numbers[2][ligne], numbers[3][ligne],n] = tasse_4(numbers[0][ligne],
+    global nmove
+    tempnmove = 0
+    for ligne in range(len(numbers)):
+        [numbers[0][ligne], numbers[1][ligne], numbers[2][ligne], numbers[3][ligne]] = tasse_4(numbers[0][ligne],
         numbers[1][ligne],numbers[2][ligne],numbers[3][ligne])
-    rand_om()
+        tempnmove += nmove
+    if tempnmove == 0:
+        print("Move")
+    else:
+        rand_om()
+        print("noMove")
     display()
 
 
 #Déplacer les chiffres en bas
 def move_bottom(event):
-    for ligne in range(4):
-        [numbers[3][ligne], numbers[2][ligne], numbers[1][ligne], numbers[0][ligne],n] = tasse_4(numbers[3][ligne],
+    global nmove
+    tempnmove = 0
+    for ligne in range(len(numbers)):
+        [numbers[3][ligne], numbers[2][ligne], numbers[1][ligne], numbers[0][ligne]] = tasse_4(numbers[3][ligne],
         numbers[2][ligne],numbers[1][ligne],numbers[0][ligne])
-    rand_om()
+        tempnmove += nmove
+    if tempnmove == 0:
+        print("Move")
+    else:
+        rand_om()
+        print("noMove")
     display()
 
 

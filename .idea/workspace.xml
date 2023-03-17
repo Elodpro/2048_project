@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f4d320fa-7ae6-4da3-ba85-b2c53775a9a3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projet complet.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main0.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main0.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasse4.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +27,11 @@
         <option value="Elod &lt;elod.pro1@gmail.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/main0.2.py" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tasse4.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/main0.2.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +59,7 @@
       <recent name="C:\Users\qzary\Desktop\CPNV\MA-20\Project 2048" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main0.2">
     <configuration name="etiquettes (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Project 2048" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,6 +104,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main0.2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Project 2048" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main0.2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="tasse4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Project 2048" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,6 +150,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main0.2" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.tasse4" />
         <item itemvalue="Python.etiquettes (1)" />
@@ -159,6 +183,10 @@
       <workItem from="1678436980198" duration="4612000" />
       <workItem from="1678442793904" duration="69000" />
       <workItem from="1678446636699" duration="160000" />
+      <workItem from="1678454897926" duration="167000" />
+      <workItem from="1678824568916" duration="493000" />
+      <workItem from="1678874600803" duration="4176000" />
+      <workItem from="1679036548548" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout fonction random">
       <created>1677247558387</created>
@@ -195,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678442849246</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ajout de la documentation">
+      <created>1678454928062</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678454928062</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,11 +250,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ajout fonction random" />
     <MESSAGE value="Modification et optimisation de la foncion rand_om.&#10;Les 4 fonctions pour déplacer les tuiles dans chaque sens fonctionne" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification et optimisation de la foncion rand_om.&#10;Les 4 fonctions pour déplacer les tuiles dans chaque sens fonctionne" />
+    <MESSAGE value="Ajout de la documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la documentation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project_2048$etiquettes__1_.coverage" NAME="etiquettes (1) Coverage Results" MODIFIED="1676584466323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/Project_2048$tasse4.coverage" NAME="tasse4 Coverage Results" MODIFIED="1677230410597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project_2048$main.coverage" NAME="main Coverage Results" MODIFIED="1678442229022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_2048$main0_2.coverage" NAME="main0.2 Coverage Results" MODIFIED="1678878830550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

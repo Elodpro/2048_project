@@ -12,6 +12,7 @@ width = 500
 height = 500
 luck2 = 0.80
 nmove = 0
+score = 0
 window = Tk()
 window.config(bg="#FCF0CC")
 screenwidth = window.winfo_screenwidth()
@@ -24,7 +25,6 @@ window.title("2048")
 
 
 #Variables
-
 
 colors = {
     0: "#E9DBAE",
@@ -81,9 +81,13 @@ for line in range(len(numbers)):
         # placement du label dans la fenêtre par ses coordonnées en pixels
         labels[line][colon].place(x=51 + width1 * colon, y=150 + height1 * line)
 
+#Crée le score initiale qui évoluera au fur et a mesure du jeu grâce aux modif dans tass 4. lien modif dans tasse 4 ->(1)
+score_label = Label(window, text="0", fg="black", bg="#F4CD58", font="Arial, 10")
 
+#Fonction permettant le tassemant des tuiles
 def tasse_4(a,b,c,d):
     global nmove
+    global score #(1)
     nmove = 0  # sert à savoir si on a réussi à bouger
     # ici le code va manipuler a,b,c et d
 
@@ -101,13 +105,18 @@ def tasse_4(a,b,c,d):
     #Stack les chiffres entre eux ou additionner plutôt
     if a == b and b > 0:
         a,b,c,d = a+b,c,d,0
-        nmove += 1
+        score = score + a
+        score_label.config(text=score) #(1)
+
     if b == c and c >0:
         b,c,d = b+c,d,0
-        nmove += 1
+        score = score + b
+        score_label.config(text=score) #(1)
+
     if c == d and d >0:
         c,d = c+d,0
-        nmove += 1
+        score = score + c
+        score_label.config(text=score) #(1)
 
 
     # ici on retourne les cinq valeurs en un tableau
@@ -159,8 +168,11 @@ def rand_om():
 
 #Recommemce la partie avec 2x2 chiffres aléatoirement placé
 def new_game():
+    global score
     global numbers
     numbers = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
+    score = 0
+    score_label.config(text="0")
     rand_om()
     rand_om()
     display()
@@ -234,6 +246,7 @@ def move_bottom(event):
 
 
 
+
 #Attribuer les touches au déplacement
 window.bind("<a>",move_left)
 window.bind("<d>",move_right)
@@ -248,6 +261,6 @@ ScoreTxt.place(x=70, y=22)
 rulesTxt.place(x=35, y=80)
 nameGame.place(x=345, y=16)
 btn_newGame.place(x=380, y=76)
-
+score_label.place(x=89, y=47)
 display()
 window.mainloop()

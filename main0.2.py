@@ -47,9 +47,9 @@ colors = {
 
 #Pré crée les tuilles avec leur chiffre
 numbers = [[0, 0, 0, 512],
-           [1024, 0, 16, 0],
-           [0, 8, 0, 2],
-           [0, 4096, 4096, 0]]
+           [1024, 1024, 16, 0],
+           [512, 512, 512, 512],
+           [0, 4096, 0, 0]]
 
 #Créer les espaces vides pour les tuilles
 labels = [[None, None, None, None],
@@ -175,6 +175,7 @@ def rand_om():
 def new_game():
     global score
     global numbers
+
     numbers = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
     score = 0
     score_label.config(text="0")
@@ -186,16 +187,42 @@ def new_game():
 btn_newGame = Button(window, text="Nouveau", width=7, borderwidth=3, height=1, relief="raised", bg="#F1C232", font=("Comic Sans MS", 11),command=new_game)
 
 
+#Texte lorsque le joueur à atteint 8192
+fin_label = Label(window, text="Fin de la partie", fg="black", bg="#FCF0CC", font="Arial, 20")
+
+
+#Permet de supprimer le texte de fin de jeu une fois avoir appuyer sur le bouton "Encore ?"
+def supp_end_txt():
+    global score
+    global numbers
+
+    numbers = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+    score = 0
+    score_label.config(text="0")
+    fin_label.destroy()
+    btn_restart_end.destroy()
+    rand_om()
+    rand_om()
+    display()
+
+
+#Boutton restart le jeu après avoir gagné
+btn_restart_end = Button(window, text="Encore ?", width=10, borderwidth=3, height=1,
+relief="raised",bg="#F1C232", font=("Comic Sans MS", 11), command=supp_end_txt)
+
 
 #Fonction permettant de gèrer les messages de la tuile 2048 1x et afficher la fin de partie en ayant obtenu 8192
 msg_2048 = 1
 def win():
     global msg_2048
+    global fin_label
+    global btn_restart_end
     for line in range(len(numbers)):
         for colon in range(len(numbers[line])):
             #Permet de changer le jeu en ayant obtenu 8192
             if numbers[line][colon] == 8192:
-                fin_label = Label(window, text="Fin de la partie", fg="black", bg="#FCF0CC", font="Arial, 20").place(x=200, y=200)
+                fin_label.place(x=40, y=400)
+                btn_restart_end.place(x=40, y=440)
                 print("Win")
                 #Permet d'afficher un message qu'une seul fois lorsqu'on atteint 2048
             if msg_2048 == 1:
@@ -208,10 +235,12 @@ def win():
 def move_left(event):
     global nmove
     tempnmove = 0
+
     for ligne in range(len(numbers)):
         [numbers[ligne][0], numbers[ligne][1], numbers[ligne][2], numbers[ligne][3]]= tasse_4(numbers[ligne][0],
         numbers[ligne][1],numbers[ligne][2],numbers[ligne][3])
         tempnmove += nmove
+
     if tempnmove == 0:
         print("Move")
     else:
@@ -225,10 +254,12 @@ def move_left(event):
 def move_right(event):
     global nmove
     tempnmove = 0
+
     for ligne in range(len(numbers)):
         [numbers[ligne][3], numbers[ligne][2], numbers[ligne][1], numbers[ligne][0]] = tasse_4(numbers[ligne][3],
         numbers[ligne][2],numbers[ligne][1],numbers[ligne][0])
         tempnmove += nmove
+
     if tempnmove == 0:
         print("Move")
     else:
@@ -242,10 +273,12 @@ def move_right(event):
 def move_top(event):
     global nmove
     tempnmove = 0
+
     for ligne in range(len(numbers)):
         [numbers[0][ligne], numbers[1][ligne], numbers[2][ligne], numbers[3][ligne]] = tasse_4(numbers[0][ligne],
         numbers[1][ligne],numbers[2][ligne],numbers[3][ligne])
         tempnmove += nmove
+
     if tempnmove == 0:
         print("Move")
     else:
@@ -259,10 +292,12 @@ def move_top(event):
 def move_bottom(event):
     global nmove
     tempnmove = 0
+
     for ligne in range(len(numbers)):
         [numbers[3][ligne], numbers[2][ligne], numbers[1][ligne], numbers[0][ligne]] = tasse_4(numbers[3][ligne],
         numbers[2][ligne],numbers[1][ligne],numbers[0][ligne])
         tempnmove += nmove
+
     if tempnmove == 0:
         print("Move")
     else:
@@ -272,9 +307,6 @@ def move_bottom(event):
     display()
 
 
-#Permet de supprimer le texte de fin de jeu une fois avoir appuyer sur le bouton "Encore ?"
-def supp_end_txt(event):
-    fin_label.config()
 
 
 #Attribuer les touches au déplacement

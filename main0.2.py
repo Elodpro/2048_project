@@ -5,6 +5,7 @@ import tkinter
 import random
 from tkinter import *
 import tkinter.font as tkFont
+from tkinter import messagebox
 
 
 #Création fenêtre au millieu de l'écran
@@ -44,10 +45,10 @@ colors = {
 }
 
 #Pré crée les tuilles avec leur chiffre
-numbers = [[2, 0, 0, 0],
-           [32, 0, 16, 0],
+numbers = [[512, 512, 512, 512],
+           [1024, 1024, 16, 0],
            [0, 8, 0, 2],
-           [0, 4, 4, 0]]
+           [0, 4096, 4096, 0]]
 
 #Créer les espaces vides pour les tuilles
 labels = [[None, None, None, None],
@@ -180,6 +181,23 @@ def new_game():
 #Boutton "Nouveau"
 btn_newGame = Button(window, text="Nouveau", width=7, borderwidth=3, height=1, relief="raised", bg="#F1C232", font=("Comic Sans MS", 11),command=new_game)
 
+msg_2048 = 1
+def win():
+    global msg_2048
+    for line in range(len(numbers)):
+        for colon in range(len(numbers[line])):
+            #Permet de changer le jeu en ayant obtenu 8192
+            if numbers[line][colon] == 8192:
+                print("Win")
+                window.config(bg="#B3B3B3")
+                #Permet d'afficher un message qu'une seul fois lorsqu'on atteint 2048
+            if msg_2048 == 1:
+                if numbers[line][colon] == 2048:
+                    messagebox.showinfo("Félicitation", "Vous avez obtenu 2048")
+                    msg_2048 = 0
+
+
+
 
 #Déplacer les chiffres à gauche
 def move_left(event):
@@ -192,6 +210,7 @@ def move_left(event):
     if tempnmove == 0:
         print("Move")
     else:
+        win()
         rand_om()
         print("noMove")
     display()
@@ -208,6 +227,7 @@ def move_right(event):
     if tempnmove == 0:
         print("Move")
     else:
+        win()
         rand_om()
         print("noMove")
     display()
@@ -224,6 +244,7 @@ def move_top(event):
     if tempnmove == 0:
         print("Move")
     else:
+        win()
         rand_om()
         print("noMove")
     display()
@@ -240,6 +261,7 @@ def move_bottom(event):
     if tempnmove == 0:
         print("Move")
     else:
+        win()
         rand_om()
         print("noMove")
     display()

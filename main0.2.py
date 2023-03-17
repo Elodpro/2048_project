@@ -8,6 +8,7 @@ import tkinter.font as tkFont
 from tkinter import messagebox
 
 
+
 #Création fenêtre au millieu de l'écran
 width = 500
 height = 500
@@ -45,8 +46,8 @@ colors = {
 }
 
 #Pré crée les tuilles avec leur chiffre
-numbers = [[512, 512, 512, 512],
-           [1024, 1024, 16, 0],
+numbers = [[0, 0, 0, 512],
+           [1024, 0, 16, 0],
            [0, 8, 0, 2],
            [0, 4096, 4096, 0]]
 
@@ -70,6 +71,10 @@ nameGame = Label(window, text="2048", bg="#FCF0CC", font=("Comic Sans MS", 33))
 #Fond du jeu
 background_label = Label(window, width=58, height=17, relief="solid", borderwidth=3, bg="#F6D97F")
 
+#Crée le score initiale qui évoluera au fur et a mesure du jeu grâce aux modif dans tass 4. lien modif dans tasse 4 ->(1)
+score_label = Label(window, text="0", fg="black", bg="#F4CD58", font="Arial, 10")
+
+
 #Création label
 width1 = 98 #espacement horizontal en pixels des étiquettes (remarque la taille des labels est en caractères)
 height1 = 61 #espacement vertical en pixels des étiquettes
@@ -82,8 +87,7 @@ for line in range(len(numbers)):
         # placement du label dans la fenêtre par ses coordonnées en pixels
         labels[line][colon].place(x=51 + width1 * colon, y=150 + height1 * line)
 
-#Crée le score initiale qui évoluera au fur et a mesure du jeu grâce aux modif dans tass 4. lien modif dans tasse 4 ->(1)
-score_label = Label(window, text="0", fg="black", bg="#F4CD58", font="Arial, 10")
+
 
 #Fonction permettant le tassemant des tuiles
 def tasse_4(a,b,c,d):
@@ -167,7 +171,7 @@ def rand_om():
     display()
 
 
-#Recommemce la partie avec 2x2 chiffres aléatoirement placé
+#Recommemce la partie en supprimant toute les tuiles avant que la fonctions random s'éxecute
 def new_game():
     global score
     global numbers
@@ -181,6 +185,9 @@ def new_game():
 #Boutton "Nouveau"
 btn_newGame = Button(window, text="Nouveau", width=7, borderwidth=3, height=1, relief="raised", bg="#F1C232", font=("Comic Sans MS", 11),command=new_game)
 
+
+
+#Fonction permettant de gèrer les messages de la tuile 2048 1x et afficher la fin de partie en ayant obtenu 8192
 msg_2048 = 1
 def win():
     global msg_2048
@@ -188,15 +195,13 @@ def win():
         for colon in range(len(numbers[line])):
             #Permet de changer le jeu en ayant obtenu 8192
             if numbers[line][colon] == 8192:
+                fin_label = Label(window, text="Fin de la partie", fg="black", bg="#FCF0CC", font="Arial, 20").place(x=200, y=200)
                 print("Win")
-                window.config(bg="#B3B3B3")
                 #Permet d'afficher un message qu'une seul fois lorsqu'on atteint 2048
             if msg_2048 == 1:
                 if numbers[line][colon] == 2048:
                     messagebox.showinfo("Félicitation", "Vous avez obtenu 2048")
                     msg_2048 = 0
-
-
 
 
 #Déplacer les chiffres à gauche
@@ -267,6 +272,9 @@ def move_bottom(event):
     display()
 
 
+#Permet de supprimer le texte de fin de jeu une fois avoir appuyer sur le bouton "Encore ?"
+def supp_end_txt(event):
+    fin_label.config()
 
 
 #Attribuer les touches au déplacement
@@ -279,10 +287,10 @@ window.bind("s",move_bottom)
 #Afficher les choses crée
 background_label.place(x=40, y=138)
 ScoreSq.place(x=35, y=20)
-ScoreTxt.place(x=70, y=22)
+ScoreTxt.place(x=40, y=22)
 rulesTxt.place(x=35, y=80)
 nameGame.place(x=345, y=16)
 btn_newGame.place(x=380, y=76)
-score_label.place(x=89, y=47)
+score_label.place(x=42, y=47)
 display()
 window.mainloop()

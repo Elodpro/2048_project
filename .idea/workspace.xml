@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d320fa-7ae6-4da3-ba85-b2c53775a9a3" name="Changes" comment="Ajout fonction &quot;Win&quot;, Ajout">
+    <list default="true" id="f4d320fa-7ae6-4da3-ba85-b2c53775a9a3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main0.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main0.2.py" afterDir="false" />
     </list>
@@ -188,7 +188,9 @@
       <workItem from="1678454897926" duration="167000" />
       <workItem from="1678824568916" duration="493000" />
       <workItem from="1678874600803" duration="4176000" />
-      <workItem from="1679036548548" duration="12251000" />
+      <workItem from="1679036548548" duration="12267000" />
+      <workItem from="1679158193776" duration="2172000" />
+      <workItem from="1679248069982" duration="1712000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout fonction random">
       <created>1677247558387</created>
@@ -260,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679056889724</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ajout fonction &quot;Win&quot;, Ajout">
+      <created>1679059485152</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679059485152</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,12 +291,13 @@
     <MESSAGE value="Modification et optimisation de la foncion rand_om.&#10;Les 4 fonctions pour déplacer les tuiles dans chaque sens fonctionne" />
     <MESSAGE value="Ajout de la documentation" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Ajout fonction &quot;Win&quot;, Ajout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout fonction &quot;Win&quot;, Ajout" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project_2048$etiquettes__1_.coverage" NAME="etiquettes (1) Coverage Results" MODIFIED="1676584466323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/Project_2048$tasse4.coverage" NAME="tasse4 Coverage Results" MODIFIED="1677230410597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project_2048$main.coverage" NAME="main Coverage Results" MODIFIED="1678442229022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Project_2048$main0_2.coverage" NAME="main0.2 Coverage Results" MODIFIED="1679058556296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_2048$main0_2.coverage" NAME="main0.2 Coverage Results" MODIFIED="1679249739996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

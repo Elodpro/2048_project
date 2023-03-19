@@ -6,7 +6,7 @@ import random
 from tkinter import *
 import tkinter.font as tkFont
 from tkinter import messagebox
-
+import copy
 
 
 #Création fenêtre au millieu de l'écran
@@ -49,7 +49,7 @@ colors = {
 numbers = [[0, 0, 0, 512],
            [1024, 1024, 16, 0],
            [512, 512, 512, 512],
-           [0, 4096, 0, 0]]
+           [0, 2048, 2048, 0]]
 
 #Créer les espaces vides pour les tuilles
 labels = [[None, None, None, None],
@@ -143,6 +143,14 @@ def display():
                 labels[line][colon].config(text=numbers[line][colon], bg=colors[numbers[line][colon]])
 
 
+def nameGame_change():
+    for line in range(len(numbers)):
+        for colon in range(len(numbers[line])):
+            if numbers[line][colon] ==4096:
+                print("4096exe")
+                nameGame.config(text="4096")
+                display()
+
 #Fonction qui randomise le placement de 2 chiffre de 2 ou 4 sur le tableau
 #Aidé par Carlos pour la fonction ci-dessous
 def rand_om():
@@ -179,6 +187,9 @@ def new_game():
     numbers = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
     score = 0
     score_label.config(text="0")
+    nameGame.config(text="2048")
+    fin_label.destroy()
+    btn_restart_end.destroy()
     rand_om()
     rand_om()
     display()
@@ -199,6 +210,7 @@ def supp_end_txt():
     numbers = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     score = 0
     score_label.config(text="0")
+    nameGame.config(text="2048")
     fin_label.destroy()
     btn_restart_end.destroy()
     rand_om()
@@ -230,6 +242,27 @@ def win():
                     messagebox.showinfo("Félicitation", "Vous avez obtenu 2048")
                     msg_2048 = 0
 
+def nameGame_change():
+    for line in range(len(numbers)):
+        for colon in range(len(numbers[line])):
+
+            if numbers[line][colon] ==4096:
+                print("4096exe")
+                nameGame.config(text="4096")
+
+            if numbers[line][colon] == 8192:
+                print("8192exe")
+                nameGame.config(text="8192")
+
+                display()
+
+#Fonction lorsqu'il n'y a plus la possibilité de bouger met un message
+#Qu'on a perdu
+def loose():
+    global numbers
+    if numbers[line][colon] == 8192:
+        numbers = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
 
 #Déplacer les chiffres à gauche
 def move_left(event):
@@ -240,7 +273,8 @@ def move_left(event):
         [numbers[ligne][0], numbers[ligne][1], numbers[ligne][2], numbers[ligne][3]]= tasse_4(numbers[ligne][0],
         numbers[ligne][1],numbers[ligne][2],numbers[ligne][3])
         tempnmove += nmove
-
+        loose()
+        nameGame_change()
     if tempnmove == 0:
         print("Move")
     else:
@@ -259,7 +293,8 @@ def move_right(event):
         [numbers[ligne][3], numbers[ligne][2], numbers[ligne][1], numbers[ligne][0]] = tasse_4(numbers[ligne][3],
         numbers[ligne][2],numbers[ligne][1],numbers[ligne][0])
         tempnmove += nmove
-
+        loose()
+        nameGame_change()
     if tempnmove == 0:
         print("Move")
     else:
@@ -272,19 +307,22 @@ def move_right(event):
 #Déplacer les chiffres en haut
 def move_top(event):
     global nmove
+    global numbers
     tempnmove = 0
 
     for ligne in range(len(numbers)):
         [numbers[0][ligne], numbers[1][ligne], numbers[2][ligne], numbers[3][ligne]] = tasse_4(numbers[0][ligne],
         numbers[1][ligne],numbers[2][ligne],numbers[3][ligne])
         tempnmove += nmove
-
+        loose()
+        nameGame_change()
     if tempnmove == 0:
-        print("Move")
+       print("Move")
     else:
         win()
         rand_om()
         print("noMove")
+
     display()
 
 
@@ -297,7 +335,8 @@ def move_bottom(event):
         [numbers[3][ligne], numbers[2][ligne], numbers[1][ligne], numbers[0][ligne]] = tasse_4(numbers[3][ligne],
         numbers[2][ligne],numbers[1][ligne],numbers[0][ligne])
         tempnmove += nmove
-
+        loose()
+        nameGame_change()
     if tempnmove == 0:
         print("Move")
     else:

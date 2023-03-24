@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4d320fa-7ae6-4da3-ba85-b2c53775a9a3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation complet.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation complet.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main0.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main0.2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +191,11 @@
       <workItem from="1678874600803" duration="4176000" />
       <workItem from="1679036548548" duration="12267000" />
       <workItem from="1679158193776" duration="2172000" />
-      <workItem from="1679248069982" duration="1712000" />
+      <workItem from="1679248069982" duration="1860000" />
+      <workItem from="1679329630929" duration="62000" />
+      <workItem from="1679329726425" duration="68000" />
+      <workItem from="1679341499784" duration="3498000" />
+      <workItem from="1679649586324" duration="3331000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout fonction random">
       <created>1677247558387</created>
@@ -269,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679059485152</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Ajout de la fonction &quot;nameGame_change()&quot; qui permet de faire changer le nom du jeu par exemple de 2048 à 4096 lorsqu'on a 4096 dans le jeu etc">
+      <created>1679249881170</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679249881170</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,12 +304,13 @@
     <MESSAGE value="Ajout de la documentation" />
     <MESSAGE value="." />
     <MESSAGE value="Ajout fonction &quot;Win&quot;, Ajout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout fonction &quot;Win&quot;, Ajout" />
+    <MESSAGE value="Ajout de la fonction &quot;nameGame_change()&quot; qui permet de faire changer le nom du jeu par exemple de 2048 à 4096 lorsqu'on a 4096 dans le jeu etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la fonction &quot;nameGame_change()&quot; qui permet de faire changer le nom du jeu par exemple de 2048 à 4096 lorsqu'on a 4096 dans le jeu etc" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project_2048$etiquettes__1_.coverage" NAME="etiquettes (1) Coverage Results" MODIFIED="1676584466323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/Project_2048$tasse4.coverage" NAME="tasse4 Coverage Results" MODIFIED="1677230410597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project_2048$main.coverage" NAME="main Coverage Results" MODIFIED="1678442229022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Project_2048$main0_2.coverage" NAME="main0.2 Coverage Results" MODIFIED="1679249739996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_2048$main0_2.coverage" NAME="main0.2 Coverage Results" MODIFIED="1679654661145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

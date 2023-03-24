@@ -72,8 +72,10 @@ nameGame = Label(window, text="2048", bg="#FCF0CC", font=("Comic Sans MS", 33))
 background_label = Label(window, width=58, height=17, relief="solid", borderwidth=3, bg="#F6D97F")
 
 #Crée le score initiale qui évoluera au fur et a mesure du jeu grâce aux modif dans tass 4. lien modif dans tasse 4 ->(1)
-score_label = Label(window, text="0", fg="black", bg="#F4CD58", font="Arial, 10")
+score_label = Label(window, text="0", fg="white", bg="#F4CD58", font="Arial, 10")
 
+#Crée un texte qui dis qu'on a perdu
+loose_label = Label(window, text="Vous avez perdu", fg="black", bg="#FCF0CC", font="Arial, 20")
 
 #Création label
 width1 = 98 #espacement horizontal en pixels des étiquettes (remarque la taille des labels est en caractères)
@@ -143,6 +145,7 @@ def display():
                 labels[line][colon].config(text=numbers[line][colon], bg=colors[numbers[line][colon]])
 
 
+
 def nameGame_change():
     for line in range(len(numbers)):
         for colon in range(len(numbers[line])):
@@ -190,6 +193,7 @@ def new_game():
     nameGame.config(text="2048")
     fin_label.destroy()
     btn_restart_end.destroy()
+    loose_label.destroy()
     rand_om()
     rand_om()
     display()
@@ -242,6 +246,39 @@ def win():
                     messagebox.showinfo("Félicitation", "Vous avez obtenu 2048")
                     msg_2048 = 0
 
+
+#perdu
+def loose():
+    global numbers
+    moveperdu = 0
+#copied my numbers
+    numbers2 = copy.deepcopy(numbers)
+    #move left
+    for ligne in range(4):
+        [numbers2[ligne][0], numbers2[ligne][1], numbers2[ligne][2], numbers2[ligne][3]] = tasse_4(numbers2[ligne][0],numbers2[ligne][1],numbers2[ligne][2],numbers2[ligne][3])
+        moveperdu += nmove
+    #move right
+    for ligne in range(4):
+        [numbers2[ligne][3], numbers2[ligne][2], numbers2[ligne][1], numbers2[ligne][0]] = tasse_4(numbers2[ligne][3],numbers2[ligne][2],numbers2[ligne][1],numbers2[ligne][0])
+        moveperdu += nmove
+    #move up
+    for line in range(4):
+        [numbers2[0][line], numbers2[1][line], numbers2[2][line], numbers2[3][line]] = tasse_4(numbers2[0][line],numbers2[1][line],numbers2[2][line],numbers2[3][line])
+        moveperdu += nmove
+    #move down
+    for line in range(4):
+        [numbers2[3][line], numbers2[2][line], numbers2[1][line], numbers2[0][line]] = tasse_4(numbers2[3][line],numbers2[2][line],numbers2[1][line],numbers2[0][line])
+        moveperdu += nmove
+    if moveperdu == 0:
+        messagebox.showinfo("PERDU","Vous avez perdu !")
+        
+
+#Fonction lorsqu'il n'y a plus la possibilité de bouger met un message
+#Qu'on a perdu
+#def loose():
+
+
+
 def nameGame_change():
     for line in range(len(numbers)):
         for colon in range(len(numbers[line])):
@@ -258,10 +295,6 @@ def nameGame_change():
 
 #Fonction lorsqu'il n'y a plus la possibilité de bouger met un message
 #Qu'on a perdu
-def loose():
-    global numbers
-    if numbers[line][colon] == 8192:
-        numbers = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 
 #Déplacer les chiffres à gauche
@@ -273,14 +306,13 @@ def move_left(event):
         [numbers[ligne][0], numbers[ligne][1], numbers[ligne][2], numbers[ligne][3]]= tasse_4(numbers[ligne][0],
         numbers[ligne][1],numbers[ligne][2],numbers[ligne][3])
         tempnmove += nmove
-        loose()
         nameGame_change()
     if tempnmove == 0:
-        print("Move")
+        print("ok")
     else:
         win()
         rand_om()
-        print("noMove")
+        loose()
     display()
 
 
@@ -293,36 +325,32 @@ def move_right(event):
         [numbers[ligne][3], numbers[ligne][2], numbers[ligne][1], numbers[ligne][0]] = tasse_4(numbers[ligne][3],
         numbers[ligne][2],numbers[ligne][1],numbers[ligne][0])
         tempnmove += nmove
-        loose()
         nameGame_change()
     if tempnmove == 0:
         print("Move")
     else:
         win()
         rand_om()
-        print("noMove")
+        loose()
     display()
 
 
 #Déplacer les chiffres en haut
 def move_top(event):
     global nmove
-    global numbers
     tempnmove = 0
 
     for ligne in range(len(numbers)):
         [numbers[0][ligne], numbers[1][ligne], numbers[2][ligne], numbers[3][ligne]] = tasse_4(numbers[0][ligne],
         numbers[1][ligne],numbers[2][ligne],numbers[3][ligne])
         tempnmove += nmove
-        loose()
         nameGame_change()
     if tempnmove == 0:
        print("Move")
     else:
         win()
         rand_om()
-        print("noMove")
-
+        loose()
     display()
 
 
@@ -335,14 +363,13 @@ def move_bottom(event):
         [numbers[3][ligne], numbers[2][ligne], numbers[1][ligne], numbers[0][ligne]] = tasse_4(numbers[3][ligne],
         numbers[2][ligne],numbers[1][ligne],numbers[0][ligne])
         tempnmove += nmove
-        loose()
         nameGame_change()
     if tempnmove == 0:
         print("Move")
     else:
         win()
         rand_om()
-        print("noMove")
+        loose()
     display()
 
 

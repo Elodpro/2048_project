@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d320fa-7ae6-4da3-ba85-b2c53775a9a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f4d320fa-7ae6-4da3-ba85-b2c53775a9a3" name="Changes" comment="Ajout fonction loose()">
       <change beforePath="$PROJECT_DIR$/Documentation complet.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation complet.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main0.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main0.2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +194,7 @@
       <workItem from="1679329726425" duration="68000" />
       <workItem from="1679341499784" duration="3498000" />
       <workItem from="1679649586324" duration="3627000" />
-      <workItem from="1679655087693" duration="1093000" />
+      <workItem from="1679655087693" duration="1439000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout fonction random">
       <created>1677247558387</created>
@@ -296,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679654951532</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Ajout fonction loose()">
+      <created>1679656195473</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679656195473</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

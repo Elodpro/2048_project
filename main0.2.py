@@ -247,7 +247,8 @@ def win():
                     msg_2048 = 0
 
 
-#perdu
+#Fonction lorsqu'il n'y a plus la possibilité de bouger met un message
+#Qu'on a perdu
 def loose():
     global numbers
     moveperdu = 0
@@ -271,12 +272,6 @@ def loose():
         moveperdu += nmove
     if moveperdu == 0:
         messagebox.showinfo("PERDU","Vous avez perdu !")
-        
-
-#Fonction lorsqu'il n'y a plus la possibilité de bouger met un message
-#Qu'on a perdu
-#def loose():
-
 
 
 def nameGame_change():

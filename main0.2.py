@@ -239,7 +239,7 @@ def win():
             if numbers[line][colon] == 8192:
                 fin_label.place(x=40, y=400)
                 btn_restart_end.place(x=40, y=440)
-                print("Win")
+
                 #Permet d'afficher un message qu'une seul fois lorsqu'on atteint 2048
             if msg_2048 == 1:
                 if numbers[line][colon] == 2048:
